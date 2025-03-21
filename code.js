@@ -46,7 +46,7 @@ export function disegnaPunto({
   if (frameCount % myrand4 === 0) {
     let myrand0 = floor(random(2)); // genera 0 o 1
     if (myrand0 % 2 === 0) {
-      configurazione.testo = "spype";
+      configurazione.testo = "    spype    ";
     } else {
       configurazione.testo = "e";
     }
