@@ -57,11 +57,19 @@ export function disegnaPunto({
   let index = floor(map(alpha, 0, 360, 0, testi.length)) % testi.length;
   configurazione.testo = testi[index];
 
+  // Usa beta per modificare la dimensione: genera un moltiplicatore (da 0.5 a 1.5)
+  let sizeModifier = map(beta, -90, 90, 0.5, 1.5);
+
+  // Usa gamma per controllare il canale blu del colore (livello di blu da 0 a 255)
+  let bValue = map(gamma, -90, 90, 0, 255);
+
   const size = sin((frameCount + indice) * 0.01) * (volume * unita * 1) * unita;
+  const adjustedSize = size * sizeModifier;
 
   let r = random(255);
   let g = random(255);
-  let b = random(255);
+  //let b = random(255);
+  let b = bValue; // sostituisci il canale blu con il valore controllato
 
   fill(r, g, b);
 
@@ -75,7 +83,7 @@ export function disegnaPunto({
   ellipse(
     myrand3,
     random(-100, 100),
-    ((size * myrand) / myrand) * myrand2 * 0.01
+    ((adjustedSize * myrand) / myrand) * myrand2 * 0.01
   );
   pop();
 
