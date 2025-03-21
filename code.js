@@ -8,7 +8,7 @@ export const configurazione = {
   sensibilitàMicrofonoBase: 10,
   densitàPuntiBase: 1,
 
-  nascondiInterfaccia: true,
+  nascondiInterfaccia: false,
 };
 
 /**
@@ -51,6 +51,12 @@ export function disegnaPunto({
       configurazione.testo = "e";
     }
   }
+
+  const testi = ["c", "psyce", "federico palumbo", "ABARoma"];
+  // Mappa alpha (0-360) sull'indice dell'array
+  let index = floor(map(alpha, 0, 360, 0, testi.length)) % testi.length;
+  configurazione.testo = testi[index];
+
   const size = sin((frameCount + indice) * 0.01) * (volume * unita * 1) * unita;
 
   let r = random(255);
