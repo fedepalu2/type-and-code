@@ -1,6 +1,5 @@
 export const configurazione = {
-  testo: "ciao \n come \n  va?", // c spype
-
+  testo: "c", // c spype
   dimensione: 0.8,
   interlinea: 0.7,
   allineamento: "centro",
