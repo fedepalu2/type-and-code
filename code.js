@@ -1,5 +1,5 @@
 export const configurazione = {
-  testo: "c", // c spype
+  testo: "e", // c spype
   dimensione: 0.8,
   interlinea: 0.7,
   allineamento: "centro",
@@ -48,7 +48,7 @@ export function disegnaPunto({
     if (myrand0 % 2 === 0) {
       configurazione.testo = "   spype";
     } else {
-      configurazione.testo = "c";
+      configurazione.testo = "e";
     }
   }
   const size = sin((frameCount + indice) * 0.01) * (volume * unita * 1) * unita;
