@@ -52,7 +52,7 @@ export function disegnaPunto({
     }
   }
 
-  const testi = ["c", "psyce", "federico palumbo", "ABARoma"];
+  const testi = ["e", "psyce", "federico palumbo", "ABARoma"];
   // Mappa alpha (0-360) sull'indice dell'array
   let index = floor(map(alpha, 0, 360, 0, testi.length)) % testi.length;
   configurazione.testo = testi[index];
