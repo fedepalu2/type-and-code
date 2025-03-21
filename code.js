@@ -1,15 +1,15 @@
 export const configurazione = {
-  testo: "spype", // c spype
+  testo: "ciao \n come \n  va?", // c spype
 
   dimensione: 0.8,
   interlinea: 0.7,
   allineamento: "centro",
   percorsoFont: "./assets/InputMonoCondensed-BoldItalic.ttf",
 
-  sensibilitàMicrofonoBase: 1,
+  sensibilitàMicrofonoBase: 10,
   densitàPuntiBase: 1,
 
-  nascondiInterfaccia: true,
+  nascondiInterfaccia: false,
 };
 
 /**
@@ -51,7 +51,7 @@ export function disegnaPunto({
   fill(r, g, b);
 
   noStroke();
-  let larghezza = map(volume, 0, 1, 4, 800);
+  let larghezza = map(volume, 0, 1, 4, 50);
   let myrand = randomGaussian(larghezza, larghezza * 2);
   let myrand2 = randomGaussian(larghezza, larghezza / 2);
   let myrand3 = randomGaussian(-10, 10);
@@ -60,7 +60,7 @@ export function disegnaPunto({
   ellipse(
     myrand3,
     random(-100, 100),
-    ((size * myrand) / myrand) * myrand2 * 0.2
+    ((size * myrand) / myrand) * myrand2 * 0.01
   );
   pop();
 
