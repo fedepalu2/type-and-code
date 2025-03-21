@@ -41,6 +41,16 @@ export function disegnaPunto({
   beta = 0,
   gamma = 0,
 }) {
+  // Ogni 60 frame alterna il testo
+  let myrand4 = floor(random(100, 180)); //
+  if (frameCount % myrand4 === 0) {
+    let myrand0 = floor(random(2)); // genera 0 o 1
+    if (myrand0 % 2 === 0) {
+      configurazione.testo = "   spype";
+    } else {
+      configurazione.testo = "c";
+    }
+  }
   const size = sin((frameCount + indice) * 0.01) * (volume * unita * 1) * unita;
 
   let r = random(255);
