@@ -1,5 +1,5 @@
 export const configurazione = {
-  testo: "F",
+  testo: "spype", // c spype
 
   dimensione: 0.8,
   interlinea: 0.7,
@@ -9,7 +9,7 @@ export const configurazione = {
   sensibilitàMicrofonoBase: 1,
   densitàPuntiBase: 1,
 
-  nascondiInterfaccia: false,
+  nascondiInterfaccia: true,
 };
 
 /**
@@ -42,6 +42,36 @@ export function disegnaPunto({
   beta = 0,
   gamma = 0,
 }) {
+  const size = sin((frameCount + indice) * 0.01) * (volume * unita * 1) * unita;
+
+  let r = random(255);
+  let g = random(255);
+  let b = random(255);
+
+  fill(r, g, b);
+
+  noStroke();
+  let larghezza = map(volume, 0, 1, 4, 800);
+  let myrand = randomGaussian(larghezza, larghezza * 2);
+  let myrand2 = randomGaussian(larghezza, larghezza / 2);
+  let myrand3 = randomGaussian(-10, 10);
+  push();
+  translate(x, y);
+  ellipse(
+    myrand3,
+    random(-100, 100),
+    ((size * myrand) / myrand) * myrand2 * 0.2
+  );
+  pop();
+
+  /* rumore tv
+  let larghezza = map(volume, 0, 1, 50, 600);
+  let myrand = randomGaussian(larghezza, larghezza * 2);
+  stroke("red");
+  rect(x * 1.2 - myrand / 2, y + myrand / 20, myrand / 80, 1, 2);
+  */
+
+  /*
   const size = sin((frameCount + indice) * 6) * ((volume * unita) / 2) * unita;
 
   if (indice % 2 == 0) {
@@ -55,6 +85,7 @@ export function disegnaPunto({
   translate(x, y);
   ellipse(0, 0, size);
   pop();
+  */
 }
 
 /**
@@ -77,10 +108,13 @@ export function impostazioni() {
  * @param {function} disegnaTesto - La funzione che disegna il testo
  */
 export function sotto(disegnaTesto) {
-  background("deeppink");
+  background("black");
 
   // [INFO] Rimuovi il commento per disegnare il testo
-  fill("white");
+  let r = random(255);
+  let g = random(255);
+  let b = random(255);
+  fill(r, g, b);
   disegnaTesto();
 }
 
